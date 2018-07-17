@@ -43,6 +43,12 @@ app.get('/about',(req,res)=>{
     });
 });
 
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle:'Projects Page'
+    });
+});
+
 app.listen(port,()=>{
     console.log(`Server is up to port ${port}`);
 });
@@ -54,6 +60,12 @@ git status
 git add ...
 .gitignore fajl
 git commit -m "..."
+git add .
 
 SSH protokol (Secure Shell)
+
+git push
+heroku create
+git push heroku
+heroku open
 */
