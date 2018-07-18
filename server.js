@@ -3,10 +3,10 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; //zbog heroku cloud-a
 
-hbs.registerPartials(__dirname + '/views/partials');
-app.set('view engine','hbs');
+hbs.registerPartials(__dirname + '/views/partials'); //podesavanje putanje do parcijalnih delova koje importujemo u ostale web stranice
+app.set('view engine','hbs'); //setovanje view engina 
 
 //middleware
 app.use((req,res,next)=>{
@@ -16,7 +16,7 @@ app.use((req,res,next)=>{
         if(err){
             console.log('Unable to append file');
         }
-    })
+    });
     next();
 });
 /*app.use((req,res,next)=>{
@@ -24,7 +24,7 @@ app.use((req,res,next)=>{
 });*/
 app.use(express.static(__dirname + '/public'));
 
-
+//helper metode koje pozivamo iz html fajlova
 hbs.registerHelper('getCurrentYear',() => new Date().getFullYear());
 hbs.registerHelper('toUpperCase',(text)=>{
     return text.toUpperCase();
@@ -58,7 +58,7 @@ app.listen(port,()=>{
 git init
 git status
 git add ...
-.gitignore fajl
+.gitignore fajl - bitno
 git commit -m "..."
 git add .
 
@@ -68,4 +68,7 @@ git push
 heroku create
 git push heroku
 heroku open
+
+promena u server.js fajlu-broj porta
+promena u 
 */
